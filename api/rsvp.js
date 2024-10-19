@@ -5,7 +5,13 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+const corsOptions = {
+    origin: '*',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const mongoURI = "mongodb+srv://server123:Alfiahibnumalik@tesserver.rbuzv.mongodb.net/?retryWrites=true&w=majority";
